@@ -56,7 +56,7 @@
         console.log("Переміщено вперед");
         if (y > 0 && arr[y - 1][x] !== 'X') {
           y -= 1;
-          arr[y][x] = 'V'; 
+          arr[y][x] = 'v'; 
        
         }
         return [x, y];
@@ -68,7 +68,7 @@
        
         if (x > 0 && arr[y][x - 1] !== 'X') {
           x -= 1;
-          arr[y][x] = 'V'; 
+          arr[y][x] = 'v'; 
           
         }
         return [x, y];
@@ -79,7 +79,7 @@
         console.log("Повернуто праворуч");
         if (x < arr[0].length - 1 && arr[y][x + 1] !== 'X') {
           x += 1;
-          arr[y][x] = 'V'; 
+          arr[y][x] = 'v'; 
          
         }
         return [x, y];
@@ -90,11 +90,18 @@
       const gameStart = PIRATE_GAME.start(initMap);
      
       const step1 = turnLeft(initMap, gameStart[0], gameStart[1]);
-      console.log( step1[0],step1[1])
         const step2 = turnLeft(initMap, step1[0], step1[1]);
         const step3= turnLeft(initMap, step2[0], step2[1]);
-        const step5= moveForward(initMap, step3[0], step3[1]);
+        const step4= moveForward(initMap, step3[0], step3[1]);
+        const step5= turnLeft(initMap, step4[0], step4[1]);
         const step6= turnLeft(initMap, step5[0], step5[1]);
+        const step7= moveForward(initMap, step6[0], step6[1]);
+        const step8= moveForward(initMap, step7[0], step7[1]);
+        const step9= turnRight(initMap, step8[0], step8[1]);
+        const step10= moveForward(initMap, step9[0], step9[1]);
+        const step11= moveForward(initMap, step10[0], step10[1]);
+        const step12= turnLeft(initMap, step11[0], step11[1]);
+        
       PIRATE_GAME.renderGrid("grid");
     </script>
   </body>
